@@ -10,6 +10,9 @@ import pkg from './package.json'
 
 export default {
   input: 'src/index.js',
+  watch:{
+    // chokidar: true
+  },
   output: [
     {
       file: pkg.main,

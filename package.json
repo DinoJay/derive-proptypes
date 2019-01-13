@@ -57,5 +57,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "chokidar": "^2.0.4",
+    "prop-types": "^15.6.2"
+  }
 }

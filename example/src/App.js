@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'derive-simple-proptypes'
+import propTypes from 'prop-types';
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
-  }
-}
+import derivPropTypes from 'derive-simple-proptypes'
+
+console.log('yotoyo', derivPropTypes({ first:[1,2] }))
+
+export default () => <div>yo</div>

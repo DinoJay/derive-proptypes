@@ -1,22 +1,31 @@
-import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './styles.css'
+const getArrayShape = (arr) => {
+  const objShapes = arr.map(v => derivePropType(v))
+  console.log('all obj shapes', objShapes, arr)
+  return PropTypes.arrayOf(objShapes)
+}
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
+const getObjectShape = ({...obj}) => {
+  const keys = Object.keys(obj)
+  return keys.map(k => ({ [ k ]: derivePropType(obj[k]) }))
+}
+
+const derivePropType = (attr, withinObj) => {
+  console.log('type', typeof attr)
+  switch (typeof attr) {
+    case 'number': { return PropTypes.number }
+    case 'string': { return PropTypes.string }
+    case 'boolean': { return PropTypes.bool }
+    case 'function': { return PropTypes.func }
+    case 'object': {
+      if (Array.isArray(attr)) { return getArrayShape(attr) }
+      return getObjectShape(attr)
+    }
   }
+}
 
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
+export default function({...props}) {
+  const keys = Object.keys(props)
+  return keys.reduce((acc, k) => ({ ...acc, [k]: derivePropType(props[k]) }), {})
 }
