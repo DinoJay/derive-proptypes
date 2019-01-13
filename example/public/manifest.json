@@ -1,0 +1,8 @@
+{
+  "short_name": "derive-simple-proptypes",
+  "name": "derive-simple-proptypes",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
