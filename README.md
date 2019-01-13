@@ -1,4 +1,4 @@
-# derive-simple-proptypes
+# derive-simple-proptypes (experimental, not usable yet)
 
 > derive simple propTypes from defaultProps. No OneOf, instanceOf
 
